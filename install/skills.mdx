@@ -15,13 +15,15 @@ A Kyberis skill teaches an agent how to conduct evidence-backed threat investiga
 
 ## Install
 
-Install the Kyberis skill in your agent environment using the command provided by Kyberis or your administrator.
+The public one-command setup path for Kyberis agents is MCP, not a skill install command. Use [Install the Kyberis MCP server](/install/mcp) when you want Claude, Cursor, Codex, or another MCP-capable agent to call Kyberis.
 
-```bash
-npx skills add <kyberis-skill-url>
-```
+Kyberis skills are currently distributed as agent-specific instruction bundles, such as a Codex skill directory. Install the skill only from a Kyberis-provided bundle or private repository that your organization controls.
 
-If your organization distributes the skill through a private repository, use that repository URL instead.
+For Codex-style local skill installs, the bundle should contain a `SKILL.md` file and any supporting references or scripts. Place it in your agent's configured skills directory, then restart or reload the agent so it can discover the skill.
+
+<Warning>
+  Do not run a placeholder command such as `npx skills add <kyberis-skill-url>` unless Kyberis has provided an actual trusted skill URL for your organization.
+</Warning>
 
 ## Verify
 
