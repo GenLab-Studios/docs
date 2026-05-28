@@ -31,7 +31,9 @@ A successful response confirms your credentials can reach the API.
 
 ## Mint a bearer token
 
-Use bearer tokens when your integration needs a short-lived credential.
+You can call most Kyberis investigation endpoints directly with `Authorization: ApiKey <key_id>:<secret>`. That is the simplest path for a first request and for trusted server-side integrations.
+
+For runtime agent sessions, prefer a short-lived bearer token. The API key remains the long-lived machine credential, while the bearer token is scoped by expiry. This reduces the blast radius if runtime logs, traces, or agent configuration expose an authorization header.
 
 ```bash
 curl -sS -X POST "$KYBERIS_BASE_URL/v2/auth/token" \
@@ -39,7 +41,7 @@ curl -sS -X POST "$KYBERIS_BASE_URL/v2/auth/token" \
   -H "Accept: application/json"
 ```
 
-The response includes `access_token`, `token_type`, `expires_in`, `expires_at`, `scopes`, `audiences`, and `issuer`.
+The response includes `access_token`, `token_type`, `expires_in`, `expires_at`, `scopes`, `audiences`, and `issuer`. Store the API key in your trusted credential store, mint bearers as needed, and refresh them when they expire.
 
 ## Resolve an entity
 
