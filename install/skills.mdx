@@ -1,0 +1,44 @@
+---
+title: 'Install the Kyberis skill'
+description: 'Give coding agents Kyberis investigation playbooks, endpoint selection rules, and response handling guidance.'
+---
+
+A Kyberis skill teaches an agent how to conduct evidence-backed threat investigations. It does not replace authentication or MCP access. Use it with MCP whenever possible.
+
+## What the skill provides
+
+- Investigation workflow: resolve, evidence, relationships, assessment, hydration, final recommendation
+- Trigger classification for CVEs, IOCs, actors, broad topics, and environment triage
+- Endpoint selection rules
+- Response decision gates for ambiguity, access errors, quotas, and weak evidence
+- Output expectations for recommendations, confidence, evidence, caveats, and next actions
+
+## Install
+
+The public one-command setup path for Kyberis agents is MCP, not a skill install command. Use [Install the Kyberis MCP server](/install/mcp) when you want Claude, Cursor, Codex, or another MCP-capable agent to call Kyberis.
+
+Kyberis skills are currently distributed as agent-specific instruction bundles, such as a Codex skill directory. Install the skill only from a Kyberis-provided bundle or private repository that your organization controls.
+
+For Codex-style local skill installs, the bundle should contain a `SKILL.md` file and any supporting references or scripts. Place it in your agent's configured skills directory, then restart or reload the agent so it can discover the skill.
+
+<Warning>
+  Do not run a placeholder command such as `npx skills add <kyberis-skill-url>` unless Kyberis has provided an actual trusted skill URL for your organization.
+</Warning>
+
+## Verify
+
+Ask your agent:
+
+```text
+Use the Kyberis skill. What workflow should you follow for a CVE-first investigation?
+```
+
+The answer should start with entity resolution, focused evidence retrieval, relationship pivots, and a CVE assessment.
+
+## Use with MCP
+
+The skill tells the agent how to investigate. MCP gives the agent tools to call Kyberis. Install both for the best experience.
+
+<Card title="Install MCP" icon="plug" href="/install/mcp">
+  Connect a supported agent client to Kyberis tools.
+</Card>
