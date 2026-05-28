@@ -158,8 +158,8 @@
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/kyberis-logo.png",
+    "dark": "/logo/kyberis-logo.png"
   },
   "navbar": {
     "links": [
